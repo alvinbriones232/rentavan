@@ -11,4 +11,9 @@
 |
 */
 
-Route::get('/','HomeController@index');
+Route::get('/','HomeController@landingPage');
+
+Auth::routes();
+
+Route::get('/dashboard', 'DashboardController@index');
+Route::get('/create-ad','DashboardController@createAd');
