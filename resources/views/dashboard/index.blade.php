@@ -1,9 +1,12 @@
 @extends('main')
 
 @section('container')
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/slider/slippry.css') }}">
+	<!-- <link rel="stylesheet" type="text/css" href="{{ asset('css/slider/lightslider.css') }}"> -->
+	<link href="{{ asset('css/slider/ninja-slider.css') }}" rel="stylesheet" />
+    <script src="{{ asset('js/slider/ninja-slider.js') }}"></script>
+    <link href="{{ asset('css/slider/thumbnail-slider.css') }}" rel="stylesheet" type="text/css" />
+    <script src="{{ asset('js/slider/thumbnail-slider.js') }}" type="text/javascript"></script>
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/slider/style.css') }}">
-	<script src="{{ asset('js/slider/slippry.min.js') }}"></script>
 	<div class="row">
 		<table class="table">
 			<tr>
@@ -32,7 +35,7 @@
 				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</td>
 			</tr>
 		</table>
-		<section id="news-demo">
+		<!-- <section id="news-demo">
 		  <article>
 		    <div class="image-content"><img src="http://slippry.com/assets/img/image-1.jpg" alt="demo1_1"></div>
 		  </article>
@@ -42,58 +45,72 @@
 		  <article>
 		    <div class="image-content"><img src="http://slippry.com/assets/img/image-3.jpg" alt="demo1_1"></div>
 		  </article>
-		</section>
+		</section> -->
+		<div style="width:1000px;margin:80px auto;">
+	        <div id="ninja-slider" style="float:left;">
+	            <div class="slider-inner">
+	                <ul>
+	                    <li><a class="ns-img" href="{{asset('storage/img/1.jpg')}}"></a></li>
+	                    <li><a class="ns-img" href="{{asset('storage/img/2.jpg')}}"></a></li>
+	                    <li><a class="ns-img" href="{{asset('storage/img/3.jpg')}}"></a></li>
+	                    <li><a class="ns-img" href="{{asset('storage/img/4.jpg')}}"></a></li>
+	                    <li><a class="ns-img" href="{{asset('storage/img/5.jpg')}}"></a></li>
+	                    <li><a class="ns-img" href="{{asset('storage/img/6.jpg')}}"></a></li>
+	                    <li><a class="ns-img" href="{{asset('storage/img/7.jpg')}}"></a></li>
+	                    <li><a class="ns-img" href="{{asset('storage/img/8.jpg')}}"></a></li>
+	                    <li><a class="ns-img" href="{{asset('storage/img/9.jpg')}}"></a></li>
+	                    <li><a class="ns-img" href="{{asset('storage/img/10.jpg')}}"></a></li>
+	                    <li><a class="ns-img" href="{{asset('storage/img/11.jpg')}}"></a></li>
+	                    <li><a class="ns-img" href="{{asset('storage/img/12.jpg')}}"></a></li>
+	                </ul>
+	                <div class="fs-icon" title="Expand/Close"></div>
+	            </div>
+	        </div>
+	        <div id="thumbnail-slider" style="float:left;">
+	            <div class="inner">
+	                <ul>
+	                    <li>
+	                        <a class="thumb" href="{{asset('storage/img/1.jpg')}}"></a>
+	                    </li>
+	                    <li>
+	                        <a class="thumb" href="{{asset('storage/img/2.jpg')}}"></a>
+	                    </li>
+	                    <li>
+	                        <a class="thumb" href="{{asset('storage/img/3.jpg')}}"></a>
+	                    </li>
+	                    <li>
+	                        <a class="thumb" href="{{asset('storage/img/4.jpg')}}"></a>
+	                    </li>
+	                    <li>
+	                        <a class="thumb" href="{{asset('storage/img/5.jpg')}}"></a>
+	                    </li>
+	                    <li>
+	                        <a class="thumb" href="{{asset('storage/img/6.jpg')}}"></a>
+	                    </li>
+	                    <li>
+	                        <a class="thumb" href="{{asset('storage/img/7.jpg')}}"></a>
+	                    </li>
+	                    <li>
+	                        <a class="thumb" href="{{asset('storage/img/8.jpg')}}"></a>
+	                    </li>
+	                    <li>
+	                        <a class="thumb" href="{{asset('istorage/mg/9.jpg')}}"></a>
+	                    </li>
+	                    <li>
+	                        <a class="thumb" href="{{asset('storage/img/10.jpg')}}"></a>
+	                    </li>
+	                    <li>
+	                        <a class="thumb" href="{{asset('storage/img/11.jpg')}}"></a>
+	                    </li>
+	                    <li>
+	                        <a class="thumb" href="{{asset('storage/img/12.jpg')}}"></a>
+	                    </li>
+	                </ul>
+	            </div>
+	        </div>
+	        <div style="clear:both;"></div>
+	    </div>
+		
 	</div>
-
-	 <script language="javascript" type="text/javascript">
-		$(function () {
-			/*$("#fileupload").change(function () {
-		        if (typeof (FileReader) != "undefined") {
-		            var dvPreview = $("#dvPreview");
-		            dvPreview.html("");
-		            var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
-		            $($(this)[0].files).each(function () {
-		                var file = $(this);
-		                if (regex.test(file[0].name.toLowerCase())) {
-		                    var reader = new FileReader();
-		                    reader.onload = function (e) {
-		                        var img = $("<img />");
-		                        img.attr("style", "height:100px;width: 100px");
-		                        img.attr("src", e.target.result);
-		                        dvPreview.append(img);
-		                    }
-		                    reader.readAsDataURL(file[0]);
-		                } else {
-		                    alert(file[0].name + " is not a valid image file.");
-		                    dvPreview.html("");
-
-		                    return false;
-		                }
-		            });
-		        } else {
-		            alert("This browser does not support HTML5 FileReader.");
-		        }
-		    });*/
-		});
-		jQuery('#news-demo').slippry({
-		// general elements & wrapper
-		slippryWrapper: '<div class="sy-box news-slider" />', // wrapper to wrap everything, including pager
-		elements: 'article', // elments cointaining slide content
-
-		// options
-		adaptiveHeight: false, // height of the sliders adapts to current 
-		captions: false,
-
-		// pager
-		pagerClass: 'news-pager',
-
-		// transitions
-		transition: 'fade', // fade, horizontal, kenburns, false
-		speed: 1200,
-		pause: 8000,
-
-		// slideshow
-		autoDirection: 'prev'
-		});
-	</script>
+	
 @endsection

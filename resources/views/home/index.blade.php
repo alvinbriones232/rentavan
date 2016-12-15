@@ -125,9 +125,10 @@
 	<script src="{{ asset('js/moment/moment.min.js') }}"></script>
 	<script src="{{ asset('js/datepicker/daterangepicker.js') }}"></script>
 	<script type="text/javascript">
-		$(document).ready(function(){
-		  var cb = function(start, end, label) {
-		      $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+		var d = jQuery.noConflict();
+		d(document).ready(function(){
+		  	var cb = function(start, end, label) {
+		      d('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
 		    };
 
 		    var optionSet1 = {
@@ -154,9 +155,9 @@
 		        firstDay: 1
 		      }
 		    };
-		    $('#reportrange span').html(moment().format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
-		    $('#reportrange').daterangepicker(optionSet1, cb);
-		    $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
+		    d('#reportrange span').html(moment().format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+		    d('#reportrange').daterangepicker(optionSet1, cb);
+		    d('#reportrange').on('apply.daterangepicker', function(ev, picker) {
 		      startDate = picker.startDate.format('YYYY-MM-DD');
 		      endDate = picker.endDate.format('YYYY-MM-DD');
 		      var base_url = $('#base_url').val();
@@ -168,8 +169,8 @@
 		          $('#revenue-cost-graph').empty().html(data);
 		        });
 		    });
-		    $('#destroy').click(function() {
-		      $('#reportrange').data('daterangepicker').remove();
+		    d('#destroy').click(function() {
+		      d('#reportrange').data('daterangepicker').remove();
 		    });
 		});
 	</script>
